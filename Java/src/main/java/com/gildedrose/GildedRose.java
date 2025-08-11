@@ -17,8 +17,8 @@ class GildedRose {
             if (itemAgesGracefully(item)) {
                 ageGracefully(item);
             } else {
-                boolean agedOut = item.sellIn < 0;
-                changeQualityOf(item, -1 - (agedOut ? 1 : 0));
+                boolean doubleAging = item.sellIn < 0 || "Conjured".equals(item.name);
+                changeQualityOf(item, -1 - (doubleAging ? 1 : 0));
             }
         }
     }
@@ -61,13 +61,5 @@ class GildedRose {
         } else {
             item.quality = item.quality + by;
         }
-    }
-
-    private void decrementQualityOf(Item item) {
-        changeQualityOf(item, -1);
-    }
-
-    private void incrementQualityOf(Item item) {
-        changeQualityOf(item, 1);
     }
 }

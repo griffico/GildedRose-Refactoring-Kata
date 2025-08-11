@@ -46,6 +46,19 @@ class GildedRoseTest {
     }
 
     @Test
+    void qualityDegradesTwiceAsFastForConjured() {
+        int sellIn = 50;
+        int quality = 75;
+        Item[] items = new Item[]{new Item("Conjured", sellIn, quality)};
+
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertEquals(quality - 2, app.items[0].quality);
+    }
+
+    @Test
     void qualityWontGoBelowNegative() {
         int sellIn = 5;
         int quality = 0;

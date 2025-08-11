@@ -8,7 +8,6 @@ class GildedRoseTest {
 
     @Test
     void itemsHaveSellInAndQuality() {
-
         int sellIn = 0;
         int quality = 0;
         Item[] items = new Item[]{new Item("foo", sellIn, quality)};
